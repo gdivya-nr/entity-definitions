@@ -507,7 +507,7 @@ synthesis:
         otel.library.version:
           entityTagName: instrumentation.version
 
-    - ruleName: infra_mssqlinstance_logs_sqlserverreceiver_composite
+    - ruleName: infra_mssqlinstance_logs_sqlserverreceiver_composite_v0_160_0
       compositeIdentifier:
         separator: ":"
         attributes:
@@ -526,6 +526,78 @@ synthesis:
           prefix: db.server.
         - attribute: otel.library.name
           value: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/sqlserverreceiver
+        - attribute: otel.library.version
+          value: 0.160.0
+      tags:
+        otel.library.name:
+          entityTagName: instrumentation.name
+        instrumentation.provider:
+          entityTagName: instrumentation.provider
+        server.address:
+          entityTagNames: [server.address]
+        server.port:
+          entityTagName: server.port
+        db.namespace:
+          entityTagName: database.name
+        otel.library.version:
+          entityTagName: instrumentation.version
+
+    - ruleName: infra_mssqlinstance_logs_sqlserverreceiver_composite_v0_161_0
+      compositeIdentifier:
+        separator: ":"
+        attributes:
+          - server.address
+          - server.port
+      compositeName:
+        fragments:
+          - attribute: server.address
+          - value: ":"
+          - attribute: server.port
+      encodeIdentifierInGUID: true
+      conditions:
+        - attribute: eventType
+          value: Log
+        - attribute: event.name
+          prefix: db.server.
+        - attribute: otel.library.name
+          value: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/sqlserverreceiver
+        - attribute: otel.library.version
+          value: 0.161.0
+      tags:
+        otel.library.name:
+          entityTagName: instrumentation.name
+        instrumentation.provider:
+          entityTagName: instrumentation.provider
+        server.address:
+          entityTagNames: [server.address]
+        server.port:
+          entityTagName: server.port
+        db.namespace:
+          entityTagName: database.name
+        otel.library.version:
+          entityTagName: instrumentation.version
+
+    - ruleName: infra_mssqlinstance_logs_sqlserverreceiver_composite_v0_162_0
+      compositeIdentifier:
+        separator: ":"
+        attributes:
+          - server.address
+          - server.port
+      compositeName:
+        fragments:
+          - attribute: server.address
+          - value: ":"
+          - attribute: server.port
+      encodeIdentifierInGUID: true
+      conditions:
+        - attribute: eventType
+          value: Log
+        - attribute: event.name
+          prefix: db.server.
+        - attribute: otel.library.name
+          value: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/sqlserverreceiver
+        - attribute: otel.library.version
+          value: 0.162.0
       tags:
         otel.library.name:
           entityTagName: instrumentation.name
@@ -629,7 +701,7 @@ synthesis:
         host.name:
           entityTagNames: [server.address, endpoint]
 
-    - ruleName: infra_mssqlinstance_db_server_events_sqlserverreceiver_composite
+    - ruleName: infra_mssqlinstance_db_server_events_sqlserverreceiver_v0_160_0
       compositeIdentifier:
         separator: ":"
         attributes:
@@ -648,6 +720,72 @@ synthesis:
           value: microsoft.sql_server
         - attribute: otel.library.name
           value: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/sqlserverreceiver
+        - attribute: otel.library.version
+          value: 0.160.0
+      tags:
+        namespace:
+        otel.library.name:
+          entityTagName: instrumentation.name
+        otel.library.version:
+          entityTagName: instrumentation.version
+        server.address:
+          entityTagNames: [server.address]
+        server.port:
+          entityTagName: server.port
+
+    - ruleName: infra_mssqlinstance_db_server_events_sqlserverreceiver_v0_161_0
+      compositeIdentifier:
+        separator: ":"
+        attributes:
+          - server.address
+          - server.port
+      compositeName:
+        fragments:
+          - attribute: server.address
+          - value: ":"
+          - attribute: server.port
+      encodeIdentifierInGUID: true
+      conditions:
+        - attribute: eventType
+          prefix: DbServer
+        - attribute: db.system.name
+          value: microsoft.sql_server
+        - attribute: otel.library.name
+          value: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/sqlserverreceiver
+        - attribute: otel.library.version
+          value: 0.161.0
+      tags:
+        namespace:
+        otel.library.name:
+          entityTagName: instrumentation.name
+        otel.library.version:
+          entityTagName: instrumentation.version
+        server.address:
+          entityTagNames: [server.address]
+        server.port:
+          entityTagName: server.port
+
+    - ruleName: infra_mssqlinstance_db_server_events_sqlserverreceiver_v0_162_0
+      compositeIdentifier:
+        separator: ":"
+        attributes:
+          - server.address
+          - server.port
+      compositeName:
+        fragments:
+          - attribute: server.address
+          - value: ":"
+          - attribute: server.port
+      encodeIdentifierInGUID: true
+      conditions:
+        - attribute: eventType
+          prefix: DbServer
+        - attribute: db.system.name
+          value: microsoft.sql_server
+        - attribute: otel.library.name
+          value: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/sqlserverreceiver
+        - attribute: otel.library.version
+          value: 0.162.0
       tags:
         namespace:
         otel.library.name:
